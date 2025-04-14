@@ -11,6 +11,7 @@ describe('Testando a agenda de contatos', () => {
         cy.get('input[type="email"]').type('victoroliveira@email.com')
         cy.get('input[type="tel"]').type('83123456789')
         cy.get('.adicionar').click()
+        cy.contains('h2', '4 contatos na agenda').should('be.visible');
     })
 
     it('Testando a funcionalidade de alteração de contatos', () => {
@@ -22,5 +23,6 @@ describe('Testando a agenda de contatos', () => {
 
     it('Testando a funcionalidade de remoção de contato', () => {
         cy.get(':nth-child(4) > .sc-gueYoa > .delete').click()
+        cy.contains('h2', '3 contatos na agenda').should('be.visible');
     })
 })
